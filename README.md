@@ -1,6 +1,8 @@
 # twitch-drops-bot
 Twitch Drops bot made in Rust (code may suck, I am still learning Rust); currently only works for Firefox
 
+[![Rust](https://github.com/stefa-n/twitch-drops-bot/actions/workflows/rust.yml/badge.svg)](https://github.com/stefa-n/twitch-drops-bot/actions/workflows/rust.yml)
+
 # Installation
 Either compile or download the .exe from the Releases page. No additional setup required!
 
