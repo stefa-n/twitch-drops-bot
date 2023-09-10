@@ -12,7 +12,7 @@ async fn init_driver(args: Vec<String>) -> thirtyfour::WebDriver
     let mut caps = DesiredCapabilities::firefox();
     let mut pref = FirefoxPreferences::new();
 
-    let debug = args.len() > 2;
+    let debug = args.len() > 3;
 
     pref.set("media.hardware-video-decoding.enabled", false).unwrap();
     pref.set("dom.maxHardwareConcurrency", "1").unwrap();
