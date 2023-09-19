@@ -6,8 +6,7 @@ use std::sync::Arc;
 use std::env;
 use ctrlc;
 
-
-async fn init_driver(args: Vec<String>) -> thirtyfour::WebDriver
+async fn init_driver(args: Vec<String>) -> WebDriver
 {
     let mut caps = DesiredCapabilities::firefox();
     let mut pref = FirefoxPreferences::new();
@@ -69,7 +68,7 @@ async fn init_driver(args: Vec<String>) -> thirtyfour::WebDriver
     return driver;
 }
 
-async fn load_twitch_stream(driver: thirtyfour::WebDriver)
+async fn load_twitch_stream(driver: WebDriver)
 {
     let exit_requested = Arc::new(AtomicBool::new(false));
     let exit_requested_clone = exit_requested.clone();
@@ -223,7 +222,10 @@ async fn load_twitch_stream(driver: thirtyfour::WebDriver)
                 print!("\rDrops: {}", text);
                 std::io::Write::flush(&mut std::io::stdout()).unwrap();
                 driver.switch_to_window(new_tab.to_owned()).await.unwrap();
-                tokio::time::sleep(Duration::from_secs(28)).await;
+                for _i in 0..28
+                {
+                    tokio::time::sleep(Duration::from_secs(1)).await;
+                }
             }
             Err(_) => {
                 driver.switch_to_window(original_tab.to_owned()).await.unwrap();
