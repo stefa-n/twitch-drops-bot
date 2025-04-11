@@ -216,7 +216,7 @@ async fn load_twitch_stream(driver: WebDriver)
     let new_tab = driver.new_tab().await.unwrap();
 
     while !exit_requested.load(Ordering::SeqCst) {
-        match driver.find(By::Css("p.CoreText-sc-1txzju1-0.bcMydc")).await {
+        match driver.find(By::Css("p.CoreText-sc-1txzju1-0.ljRbnY")).await {
             Ok(text_element) => {
                 let text = text_element.text().await.unwrap();
                 print!("\rDrops: {}", text);
